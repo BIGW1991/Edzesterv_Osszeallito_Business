@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desktop Clients", "Desktop Clients", "{1B45DE78-51BD-4D1B-A33A-1AA0645E6C54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{655E6FCB-4C35-4A31-AC56-6B017C1FB64A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edzesterv_Osszeallito_Business_Desktop_Client_Test", "Edzesterv_Osszeallito_Business_Desktop_Client_Test\Edzesterv_Osszeallito_Business_Desktop_Client_Test.csproj", "{B8FA3135-6E2B-40E6-9BE3-C0D34F0868CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edzesterv_Osszeallito_Data_Business", "..\Edzesterv_Osszeallito_Data_Business\Edzesterv_Osszeallito_Data_Business\Edzesterv_Osszeallito_Data_Business.csproj", "{99EF025A-5245-466F-AEA5-5F9FEA3C3A47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edzesterv_Osszeallito_MVVM", "..\Edzesterv_Osszeallito_MVVM\Edzesterv_Osszeallito_MVVM\Edzesterv_Osszeallito_MVVM.csproj", "{8040FF6C-2572-4164-A1E6-6B6C4BA4712B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edzesterv_Osszeallito_Data_BusinessTests", "..\Edzesterv_Osszeallito_Data_Business\Edzesterv_Osszeallito_Data_BusinessTests\Edzesterv_Osszeallito_Data_BusinessTests.csproj", "{194B87B3-7D5D-4BB0-A846-CB88A128A073}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edzesterv_Osszeallito_Business_Desktop_Client", "Edzesterv_Osszeallito_Business_Desktop_Client\Edzesterv_Osszeallito_Business_Desktop_Client.csproj", "{BCE359A9-41FF-4637-B746-8F2F14682A54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8FA3135-6E2B-40E6-9BE3-C0D34F0868CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8FA3135-6E2B-40E6-9BE3-C0D34F0868CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8FA3135-6E2B-40E6-9BE3-C0D34F0868CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8FA3135-6E2B-40E6-9BE3-C0D34F0868CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99EF025A-5245-466F-AEA5-5F9FEA3C3A47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99EF025A-5245-466F-AEA5-5F9FEA3C3A47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99EF025A-5245-466F-AEA5-5F9FEA3C3A47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99EF025A-5245-466F-AEA5-5F9FEA3C3A47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8040FF6C-2572-4164-A1E6-6B6C4BA4712B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8040FF6C-2572-4164-A1E6-6B6C4BA4712B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8040FF6C-2572-4164-A1E6-6B6C4BA4712B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8040FF6C-2572-4164-A1E6-6B6C4BA4712B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{194B87B3-7D5D-4BB0-A846-CB88A128A073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{194B87B3-7D5D-4BB0-A846-CB88A128A073}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{194B87B3-7D5D-4BB0-A846-CB88A128A073}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{194B87B3-7D5D-4BB0-A846-CB88A128A073}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCE359A9-41FF-4637-B746-8F2F14682A54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE359A9-41FF-4637-B746-8F2F14682A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE359A9-41FF-4637-B746-8F2F14682A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE359A9-41FF-4637-B746-8F2F14682A54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B8FA3135-6E2B-40E6-9BE3-C0D34F0868CA} = {655E6FCB-4C35-4A31-AC56-6B017C1FB64A}
+		{99EF025A-5245-466F-AEA5-5F9FEA3C3A47} = {1B45DE78-51BD-4D1B-A33A-1AA0645E6C54}
+		{8040FF6C-2572-4164-A1E6-6B6C4BA4712B} = {1B45DE78-51BD-4D1B-A33A-1AA0645E6C54}
+		{194B87B3-7D5D-4BB0-A846-CB88A128A073} = {655E6FCB-4C35-4A31-AC56-6B017C1FB64A}
+		{BCE359A9-41FF-4637-B746-8F2F14682A54} = {1B45DE78-51BD-4D1B-A33A-1AA0645E6C54}
+	EndGlobalSection
+EndGlobal

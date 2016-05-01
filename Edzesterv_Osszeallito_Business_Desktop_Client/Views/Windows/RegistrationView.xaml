@@ -1,0 +1,23 @@
+﻿<Window x:Class="Edzesterv_Osszeallito_Business_Desktop_Client.Views.Windows.RegistrationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Edzesterv_Osszeallito_Business_Desktop_Client.Views.Windows"
+        mc:Ignorable="d"
+        Title="Regisztráció" Background="#87cefa" Foreground="White" Width="400" Height="300" WindowStartupLocation="CenterScreen">
+    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <TextBlock Text="Név:"/>
+        <TextBox Text="{Binding User.Name}" Width="200"/>
+        <TextBlock Text="Születési dátum:"/>
+        <DatePicker Text="{Binding User.Birthday}" Width="200"/>
+        <TextBlock Text="Magasság:"/>
+        <TextBox Text="{Binding User.Height}" Width="200"/>
+        <TextBlock Text="Súly:"/>
+        <TextBox Text="{Binding User.Weight}" Width="200"/>
+        <StackPanel Orientation="Horizontal">
+            <Button Width="100" FontSize="10" Height="30" Content="Visszaállítás alapértelmezettként" Command="{Binding ResetCommand}"/>
+            <Button Width="100" FontSize="10" Height="30" Content="Mentés" Command="{Binding SaveCommand}"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
