@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using Edzesterv_Osszeallito_Business_Desktop_Client.Models.Generals;
 using Edzesterv_Osszeallito_Business_Desktop_Client.Tools;
 using Edzesterv_Osszeallito_Business_Desktop_Client.Views.Windows;
+using Edzesterv_Osszeallito_Data_Business;
 using Edzesterv_Osszeallito_MVVM;
 
 namespace Edzesterv_Osszeallito_Business_Desktop_Client.ViewModels.Windows
@@ -98,27 +98,27 @@ namespace Edzesterv_Osszeallito_Business_Desktop_Client.ViewModels.Windows
                     {
                         using (TrainingPlanBusinessEntities db = new TrainingPlanBusinessEntities())
                         {
+                            db.Configuration.ProxyCreationEnabled = false;
                             Guid ID = (from users in db.Users
-                                       where users.Username == Username
+                                       where users.Username == Username && users.Password == Password
                                        select users.ID).SingleOrDefault();
                             if (ID == Guid.Empty)
                             {
-                                MessageBox.Show("Nincs ilyen felhasználónév!", "HIBA!", MessageBoxButton.OK, MessageBoxImage.Error);
+                                MessageBox.Show("Nincs ilyen felhasználó!", "HIBA!", MessageBoxButton.OK, MessageBoxImage.Error);
                             }
                             else
                             {
-
-                                User user = (from users in db.Users
-                                             where users.Password == Password && users.ID == ID
-                                             select users).SingleOrDefault();
+                                Users user = (from users in db.Users
+                                              where users.ID == ID && users.Password == Password
+                                              select users).SingleOrDefault();
                                 if (user == null)
                                 {
-                                    MessageBox.Show("A jelszó nem megfelelő!", "HIBA!", MessageBoxButton.OK, MessageBoxImage.Error);
+                                    MessageBox.Show("A jelszó hibás!", "HIBA!", MessageBoxButton.OK, MessageBoxImage.Error);
                                 }
                                 else
                                 {
                                     MainView mainView = new MainView();
-                                    mainView.DataContext = new MainViewModel(mainView, user);
+                                    mainView.DataContext = new MainViewModel(mainView, user, KeepLogIn);
                                     mainView.Show();
                                     _LogInView.Close();
                                 }

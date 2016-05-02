@@ -44,7 +44,6 @@ namespace Edzesterv_Osszeallito_Business_Desktop_Client.DependencyProperties
                 _select = passwordBox.GetType().GetMethod("Select", BindingFlags.Instance | BindingFlags.NonPublic);
             }
             _select.Invoke(passwordBox, new object[] { start, length });
-            passwordBox.Focus();
         }
 
         private static void PasswordChanged(object sender, RoutedEventArgs e)

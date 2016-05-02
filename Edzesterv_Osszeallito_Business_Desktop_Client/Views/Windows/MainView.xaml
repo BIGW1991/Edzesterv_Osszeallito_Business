@@ -18,7 +18,7 @@
             <RowDefinition Height="90*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Horizontal">
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Horizontal" Background="#6d7d8c">
             <Image Source="/Edzésterv Összeállító Business;component/Publics/Images/TrainingPlanCapsule.png" RenderOptions.BitmapScalingMode="HighQuality"/>
         </StackPanel>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="0" Grid.Row="1">

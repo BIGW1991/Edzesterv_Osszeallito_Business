@@ -2,6 +2,7 @@
 using System.Windows;
 using Edzesterv_Osszeallito_Business_Desktop_Client.Models.Generals;
 using Edzesterv_Osszeallito_Business_Desktop_Client.Views.Windows;
+using Edzesterv_Osszeallito_Data_Business;
 using Edzesterv_Osszeallito_MVVM;
 
 namespace Edzesterv_Osszeallito_Business_Desktop_Client.ViewModels.Windows
@@ -10,14 +11,15 @@ namespace Edzesterv_Osszeallito_Business_Desktop_Client.ViewModels.Windows
     {
         #region Globals
         private MainView _MainView;
+        private Users _User;
         private ObservableCollection<DynamicMenu> _DynamicMenu;
         private ObservableCollection<SubDynamicMenu> _SubDynamicMenu;
-        private User _User;
+        private bool _KeepLogIn;
         private FrameworkElement _ContentControlView;
         #endregion Globals
 
         #region Constructor
-        public MainViewModel(MainView MainView, User User)
+        public MainViewModel(MainView MainView, Users User, bool KeepLogIn)
         {
             this._MainView = MainView;
             this.User = User;
@@ -36,6 +38,31 @@ namespace Edzesterv_Osszeallito_Business_Desktop_Client.ViewModels.Windows
             {
                 _ContentControlView = value;
                 NotifyPropertyChanged("ContentControlView");
+            }
+        }
+
+        public Users User
+        {
+            get
+            {
+                return _User;
+            }
+            set
+            {
+                _User = value;
+                NotifyPropertyChanged("User");
+            }
+        }
+
+        public bool KeepLogIn
+        {
+            get
+            {
+                return _KeepLogIn;
+            }
+            set
+            {
+                _KeepLogIn = value;
             }
         }
 
@@ -65,18 +92,6 @@ namespace Edzesterv_Osszeallito_Business_Desktop_Client.ViewModels.Windows
             }
         }
 
-        public User User
-        {
-            get
-            {
-                return _User;
-            }
-            set
-            {
-                _User = value;
-                NotifyPropertyChanged("User");
-            }
-        }
 
         #endregion Binding Properties
 

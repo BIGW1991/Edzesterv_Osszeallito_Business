@@ -9,7 +9,7 @@ namespace Edzesterv_Osszeallito_Business_Desktop_Client.ViewModels.Windows
     public sealed class RegistrationViewModel : ViewModel
     {
         #region Globals
-        private Users user;
+        private User user;
         #endregion Globals
 
         #region Constructor
@@ -20,7 +20,7 @@ namespace Edzesterv_Osszeallito_Business_Desktop_Client.ViewModels.Windows
         #endregion Constructor
 
         #region Properties
-        public Users User
+        public User User
         {
             get
             {

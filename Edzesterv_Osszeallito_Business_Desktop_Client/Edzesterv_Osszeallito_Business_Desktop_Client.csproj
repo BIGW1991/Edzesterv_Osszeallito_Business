@@ -13,6 +13,21 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -78,77 +93,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\LogInConverter.cs" />
     <Compile Include="DependencyProperties\PasswordHelper.cs" />
-    <Compile Include="Models\Generals\BMIValuesMasterData.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\Client.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\ClientsDiet.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\ClientsTrainingPlan.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\Diet.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\DietsMeal.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Generals\DynamicMenu.cs" />
-    <Compile Include="Models\Generals\Meal.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\MuscleGroupsMasterData.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Generals\SubDynamicMenu.cs" />
-    <Compile Include="Models\Generals\Training.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\TrainingPlan.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\TrainingPlanBusinessDb.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TrainingPlanBusinessDb.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\TrainingPlanBusinessDb.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\TrainingPlanBusinessDb.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TrainingPlanBusinessDb.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\TrainingsMuscleGroup.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\TrainingsTrainingPlan.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\UnitAmountsMasterData.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\User.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\Users.cs" />
-    <Compile Include="Models\Generals\UsersClient.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\UsersDiet.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generals\UsersTrainingPlan.cs">
-      <DependentUpon>TrainingPlanBusinessDb.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Generals\User.cs" />
     <Compile Include="Tools\WaitCursor.cs" />
     <Compile Include="ViewModels\Windows\ExceptionViewModel.cs" />
     <Compile Include="ViewModels\Windows\LogInViewModel.cs" />
@@ -185,13 +133,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\Generals\TrainingPlanBusinessDb.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TrainingPlanBusinessDb.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Models\Generals\TrainingPlanBusinessDb.edmx.diagram">
-      <DependentUpon>TrainingPlanBusinessDb.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -203,6 +144,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Converters\" />
     <Folder Include="Models\CustomControls\" />
     <Folder Include="Models\UserControls\" />
     <Folder Include="Models\Windows\" />
@@ -246,19 +188,25 @@
     <Resource Include="Publics\Images\TrainingPlanCapsuleWithoutText.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\Generals\TrainingPlanBusinessDb.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TrainingPlanBusinessDb.edmx</DependentUpon>
-      <LastGenOutput>TrainingPlanBusinessDb.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Generals\TrainingPlanBusinessDb.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TrainingPlanBusinessDb.edmx</DependentUpon>
-      <LastGenOutput>TrainingPlanBusinessDb.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Edzesterv_Osszeallito_Data_Business\Edzesterv_Osszeallito_Data_Business\Edzesterv_Osszeallito_Data_Business.csproj">
+      <Project>{99EF025A-5245-466F-AEA5-5F9FEA3C3A47}</Project>
+      <Name>Edzesterv_Osszeallito_Data_Business</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
