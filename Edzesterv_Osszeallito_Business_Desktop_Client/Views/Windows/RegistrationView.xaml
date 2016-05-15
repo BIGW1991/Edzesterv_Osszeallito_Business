@@ -40,7 +40,7 @@
             <TextBox Text="{Binding Name}" Margin="5" Grid.Column="1" Grid.Row="4" />
             <TextBox Text="{Binding Name}" Margin="5" Grid.Column="1" Grid.Row="5" />
             <TextBox Text="{Binding Name}" Margin="5" Grid.Column="1" Grid.Row="6" />
-            <TextBox Text="{Binding Name}" Margin="5" Grid.Column="1" Grid.Row="7" />
+            <ComboBox ItemsSource="{Binding tools:EnumBindingSource Genders}" Margin="5" Grid.Column="1" Grid.Row="7" />
             <Image Source="{Binding Profile}" Stretch="Fill" Margin="0,0,0,50"  Width="100" Height="100" Grid.Column="1" Grid.Row="8"/>
             <Button Content="Kép kiválasztása" Margin="0,0,0,10" VerticalAlignment="Bottom" Cursor="Hand" Command="{Binding ImageSelectCommand}" Width="155" Height="30" Grid.Column="1" Grid.Row="8"/>
         </Grid>

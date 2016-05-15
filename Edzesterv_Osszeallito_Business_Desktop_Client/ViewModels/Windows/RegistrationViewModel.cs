@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Drawing;
-using System.IO;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 using Edzesterv_Osszeallito_Business_Desktop_Client.Tools;
 using Edzesterv_Osszeallito_Business_Desktop_Client.Views.Windows;
 using Edzesterv_Osszeallito_MVVM;
@@ -22,6 +23,7 @@ namespace Edzesterv_Osszeallito_Business_Desktop_Client.ViewModels.Windows
         private string _Username;
         private string _Password;
         private string _PasswordAgain;
+        private string _Name;
         private Image _Image;
         private byte[] _Profile;
         #endregion Globals
@@ -142,6 +144,8 @@ namespace Edzesterv_Osszeallito_Business_Desktop_Client.ViewModels.Windows
                 GC.Collect();
                 GC.SuppressFinalize(true);
             }
+
+
         }
         #endregion Functions
     }

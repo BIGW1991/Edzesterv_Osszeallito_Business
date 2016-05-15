@@ -108,7 +108,6 @@
     <Compile Include="Models\Generals\DynamicButton.cs" />
     <Compile Include="Models\Generals\DynamicMenu.cs" />
     <Compile Include="Models\Generals\SubDynamicMenu.cs" />
-    <Compile Include="Tools\EnumerationExtension.cs" />
     <Compile Include="Tools\ImageToByteConverter.cs" />
     <Compile Include="Tools\WaitCursor.cs" />
     <Compile Include="ViewModels\UserControls\EditBMIValuesMasterDatasViewModel.cs" />
