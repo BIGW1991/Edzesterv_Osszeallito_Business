@@ -6,6 +6,11 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="ResourceDictionaries/ButtonStyle.xaml"/>
+                <ResourceDictionary Source="ResourceDictionaries/TextBoxStyle.xaml"/>
+                <ResourceDictionary Source="ResourceDictionaries/CheckBoxStyle.xaml"/>
+                <ResourceDictionary Source="ResourceDictionaries/PasswordBoxStyle.xaml"/>
+                <ResourceDictionary Source="ResourceDictionaries/ContextMenuStyle.xaml"/>
+                <ResourceDictionary Source="ResourceDictionaries/ScrollBarStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

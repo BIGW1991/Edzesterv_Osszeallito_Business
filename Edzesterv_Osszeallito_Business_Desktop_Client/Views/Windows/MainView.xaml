@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Edzesterv_Osszeallito_Business_Desktop_Client.Views.Windows"
-        xmlns:notifyIcon="http://www.hardcodet.net/taskbar"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
-        Title="Főablak" WindowStartupLocation="CenterScreen" Background="#87cefa" Width="1366" Height="730"  WindowState="Maximized" Icon="/Edzésterv Összeállító Business;component/Publics/Images/TrainingPlanCapsuleWithoutText.ico" RenderOptions.BitmapScalingMode="HighQuality">
+        Title="Főablak - Edzésterv Összeállító Business" WindowStartupLocation="CenterScreen" Background="#87cefa" WindowState="Maximized" Icon="/Edzésterv Összeállító Business;component/Publics/Images/TrainingPlanCapsuleWithoutText.ico" RenderOptions.BitmapScalingMode="HighQuality" Width="1336" Height="730">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25*"/>
@@ -14,43 +14,67 @@
             <ColumnDefinition Width="25*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="90*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="42"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="42"/>
         </Grid.RowDefinitions>
+        <tb:TaskbarIcon IconSource="/Edzésterv Összeállító Business;component/Publics/Images/TrainingPlanCapsuleWithoutText.ico" PopupActivation="LeftClick">
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu Background="#87cefa" Foreground="White">
+                    <MenuItem Header="Edzésterv Összeállító Szoftver megjelenítése" Command="{Binding ShowWindowCommand}" IsEnabled="{Binding WindowIsHidden}"/>
+                    <MenuItem Header="Edzésterv Összeállító Szoftver leállítása" Command="{Binding ApplicationExitCommand}"/>
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+            <tb:TaskbarIcon.TrayToolTip>
+                <Border Background="#87cefa" BorderBrush="#6d7d8c" BorderThickness="2" CornerRadius="4" Opacity="0.8">
+                    <TextBlock Text="Edzésterv Összeállító Business" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="20"/>
+                </Border>
+            </tb:TaskbarIcon.TrayToolTip>
+        </tb:TaskbarIcon>
         <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Horizontal" Background="#6d7d8c">
             <Image Source="/Edzésterv Összeállító Business;component/Publics/Images/TrainingPlanCapsule.png" RenderOptions.BitmapScalingMode="HighQuality"/>
         </StackPanel>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="0" Grid.Row="1">
-            <ItemsControl ItemsSource="{Binding DynamicMenu}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Expander Background="#6d7d8c" Padding="5" FontFamily="8">
-                            <Expander.Header>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Foreground="White" FontWeight="Bold" Text="{Binding Title}"/>
-                                </StackPanel>
-                            </Expander.Header>
-                            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                <StackPanel Orientation="Vertical">
-                                    <ItemsControl ItemsSource="{Binding SubDynamicMenu}">
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Margin="2">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="{Binding User.Profile}" Width="128" Height="128" Stretch="Uniform"/>
+                    <TextBlock Text="{Binding User.Name}" FontFamily="Lucida Grande" FontSize="24" HorizontalAlignment="Center" TextAlignment="Left" Foreground="White"/>
+                    <TextBlock Text="{Binding User.Birthday, StringFormat=Születési dátum: {0:yyyy.MM.dd.}}" FontFamily="Lucida Grande" FontSize="12" HorizontalAlignment="Center" TextAlignment="Left" Foreground="White"/>
+                    <TextBlock Text="{Binding User.Age, StringFormat=Kor: {0} éves}" FontFamily="Lucida Grande" FontSize="12" HorizontalAlignment="Center" TextAlignment="Left" Foreground="White"/>
+                    <TextBlock Text="{Binding User.Height, StringFormat=Magasság: {0} cm}" FontFamily="Lucida Grande" FontSize="12" HorizontalAlignment="Center" TextAlignment="Left" Foreground="White"/>
+                    <TextBlock Text="{Binding User.Weight, StringFormat=Súly: {0} kg}" FontFamily="Lucida Grande" FontSize="12" HorizontalAlignment="Center" TextAlignment="Left" Foreground="White"/>
+                </StackPanel>
+                <ItemsControl ItemsSource="{Binding DynamicMenu}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Expander Background="#6d7d8c" Padding="5" FontFamily="8">
+                                <Expander.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Foreground="White" FontWeight="Bold" Text="{Binding Title}"/>
+                                    </StackPanel>
+                                </Expander.Header>
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <StackPanel Orientation="Vertical">
+                                        <ItemsControl ItemsSource="{Binding SubDynamicMenu}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Margin="2">
                                                                 <Hyperlink Foreground="White" Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.MenuCommand}" CommandParameter="{Binding ClickCommand}">
                                                                     <TextBlock Text="{Binding Title}"/>    
                                                                 </Hyperlink>
                                                             </TextBlock>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </StackPanel>
-                            </ScrollViewer>
-                        </Expander>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </Expander>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
         </ScrollViewer>
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="{Binding AssemblyInfo.Trademark}"/>
         <ContentControl Grid.Column="1" Grid.Row="1" Content="{Binding ContentControlView}"/>
     </Grid>
 </Window>

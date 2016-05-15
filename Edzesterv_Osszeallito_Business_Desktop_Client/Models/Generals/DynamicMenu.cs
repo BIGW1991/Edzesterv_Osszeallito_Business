@@ -8,6 +8,7 @@ namespace Edzesterv_Osszeallito_Business_Desktop_Client.Models.Generals
         #region Private Members
         private string _Title;
         private ObservableCollection<SubDynamicMenu> _SubDynamicMenu;
+        private string _ClickCommand;
         #endregion Private Members
 
         #region Public Members
@@ -34,6 +35,19 @@ namespace Edzesterv_Osszeallito_Business_Desktop_Client.Models.Generals
             {
                 _SubDynamicMenu = value;
                 NotifyPropertyChanged("SubDynamicMenu");
+            }
+        }
+
+        public string ClickCommand
+        {
+            get
+            {
+                return _ClickCommand;
+            }
+            set
+            {
+                _ClickCommand = value;
+                NotifyPropertyChanged("ClickCommand");
             }
         }
         #endregion Public Members

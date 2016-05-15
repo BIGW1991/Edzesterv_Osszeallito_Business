@@ -90,50 +90,54 @@ namespace Edzesterv_Osszeallito_Business_Desktop_Client.ViewModels.Windows
         #region Functions
         private void LogInAction()
         {
-            using (new WaitCursor())
+            if (!string.IsNullOrEmpty(Username) && !string.IsNullOrWhiteSpace(Username))
             {
-                if (!string.IsNullOrEmpty(Username) && !string.IsNullOrWhiteSpace(Username))
+                if (!string.IsNullOrEmpty(Password) && !string.IsNullOrWhiteSpace(Password))
                 {
-                    if (!string.IsNullOrEmpty(Password) && !string.IsNullOrWhiteSpace(Password))
+#if DEBUG
+                    using (TrainingPlanBusinessServerEntities db = new TrainingPlanBusinessServerEntities())
                     {
+#else
                         using (TrainingPlanBusinessEntities db = new TrainingPlanBusinessEntities())
                         {
-                            db.Configuration.ProxyCreationEnabled = false;
-                            Guid ID = (from users in db.Users
-                                       where users.Username == Username && users.Password == Password
-                                       select users.ID).SingleOrDefault();
-                            if (ID == Guid.Empty)
+#endif
+                        db.Database.Log = Console.Write;
+                        db.Database.Initialize(false);
+                        db.Configuration.ProxyCreationEnabled = false;
+                        Users findUser = db.Users.Where(user => user.Username == Username).FirstOrDefault();
+                        if (findUser == null)
+                        {
+                            WarriorMessageBox mBox = new WarriorMessageBox("HIBA!", "Nincs ilyen felhasználó!", ButtonTypes.OK, IconTypes.Error);
+                            mBox.ShowDialog();
+                        }
+                        else
+                        {
+                            Users selectedUser = (findUser.Password == Password) ? findUser : null;
+                            if (selectedUser == null)
                             {
-                                MessageBox.Show("Nincs ilyen felhasználó!", "HIBA!", MessageBoxButton.OK, MessageBoxImage.Error);
+                                WarriorMessageBox mBox = new WarriorMessageBox("HIBA!", "A jelszó hibás!", ButtonTypes.OK, IconTypes.Error);
+                                mBox.ShowDialog();
                             }
                             else
                             {
-                                Users user = (from users in db.Users
-                                              where users.ID == ID && users.Password == Password
-                                              select users).SingleOrDefault();
-                                if (user == null)
-                                {
-                                    MessageBox.Show("A jelszó hibás!", "HIBA!", MessageBoxButton.OK, MessageBoxImage.Error);
-                                }
-                                else
-                                {
-                                    MainView mainView = new MainView();
-                                    mainView.DataContext = new MainViewModel(mainView, user, KeepLogIn);
-                                    mainView.Show();
-                                    _LogInView.Close();
-                                }
+                                MainView mainView = new MainView();
+                                mainView.DataContext = new MainViewModel(mainView, selectedUser, KeepLogIn);
+                                mainView.Show();
+                                _LogInView.Close();
                             }
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("A jelszó nem lehet üres!", "HIBA!", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("A felhasználónév nem lehet üres!", "HIBA!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    WarriorMessageBox mBox = new WarriorMessageBox("HIBA!", "A jelszó nem lehet üres!", ButtonTypes.OK, IconTypes.Error);
+                    mBox.ShowDialog();
                 }
+            }
+            else
+            {
+                WarriorMessageBox mBox = new WarriorMessageBox("HIBA!", "A felhasználónév nem lehet üres!", ButtonTypes.OK, IconTypes.Error);
+                mBox.ShowDialog();
             }
         }
 

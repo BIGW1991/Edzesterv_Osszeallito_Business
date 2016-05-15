@@ -55,8 +55,13 @@
     <Reference Include="AssemblyInfo">
       <HintPath>..\Build\AssemblyInfo.dll</HintPath>
     </Reference>
-    <Reference Include="Edzesterv_Osszeallito_MVVM">
+    <Reference Include="Edzesterv_Osszeallito_MVVM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Build\Edzesterv_Osszeallito_MVVM.dll</HintPath>
+    </Reference>
+    <Reference Include="EFCache, Version=1.0.0.0, Culture=neutral, PublicKeyToken=46c4868af4307d2c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.Cache.1.0.0\lib\net45\EFCache.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -66,13 +71,21 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Hardcodet.Wpf.TaskbarNotification, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hardcodet.NotifyIcon.Wpf.1.0.8\lib\net45\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -81,8 +94,6 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -94,14 +105,22 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DependencyProperties\PasswordHelper.cs" />
+    <Compile Include="Models\Generals\DynamicButton.cs" />
     <Compile Include="Models\Generals\DynamicMenu.cs" />
     <Compile Include="Models\Generals\SubDynamicMenu.cs" />
-    <Compile Include="Models\Generals\User.cs" />
+    <Compile Include="Tools\EnumerationExtension.cs" />
+    <Compile Include="Tools\ImageToByteConverter.cs" />
     <Compile Include="Tools\WaitCursor.cs" />
+    <Compile Include="ViewModels\UserControls\EditBMIValuesMasterDatasViewModel.cs" />
     <Compile Include="ViewModels\Windows\ExceptionViewModel.cs" />
     <Compile Include="ViewModels\Windows\LogInViewModel.cs" />
     <Compile Include="ViewModels\Windows\MainViewModel.cs" />
+    <Compile Include="ViewModels\Windows\MasterDatasViewModel.cs" />
+    <Compile Include="ViewModels\Windows\WarriorMessageBox.cs" />
     <Compile Include="ViewModels\Windows\RegistrationViewModel.cs" />
+    <Compile Include="Views\UserControls\EditBMIValuesMasterDatasView.xaml.cs">
+      <DependentUpon>EditBMIValuesMasterDatasView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\ExceptionView.xaml.cs">
       <DependentUpon>ExceptionView.xaml</DependentUpon>
     </Compile>
@@ -110,6 +129,12 @@
     </Compile>
     <Compile Include="Views\Windows\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\MasterDatasView.xaml.cs">
+      <DependentUpon>MasterDatasView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\MessageBoxView.xaml.cs">
+      <DependentUpon>MessageBoxView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\RegistrationView.xaml.cs">
       <DependentUpon>RegistrationView.xaml</DependentUpon>
@@ -150,12 +175,34 @@
     <Folder Include="Models\Windows\" />
     <Folder Include="ViewModels\CustomControls\" />
     <Folder Include="ViewModels\Generals\" />
-    <Folder Include="ViewModels\UserControls\" />
     <Folder Include="Views\CustomControls\" />
-    <Folder Include="Views\UserControls\" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="ResourceDictionaries\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceDictionaries\CheckBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceDictionaries\ContextMenuStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceDictionaries\PasswordBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceDictionaries\ScrollBarStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceDictionaries\TextBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\EditBMIValuesMasterDatasView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,6 +215,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Windows\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\MasterDatasView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\MessageBoxView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,7 +240,9 @@
     <Resource Include="TrainingPlanCapsuleWithoutText.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Publics\Images\TrainingPlanCapsuleWithoutText.ico" />
+    <Resource Include="Publics\Images\TrainingPlanCapsuleWithoutText.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -207,6 +264,13 @@
       <Project>{99EF025A-5245-466F-AEA5-5F9FEA3C3A47}</Project>
       <Name>Edzesterv_Osszeallito_Data_Business</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Publics\Images\ButtonCloseicon.ico" />
+    <Resource Include="Publics\Images\Error.png" />
+    <Resource Include="Publics\Images\Information.png" />
+    <Resource Include="Publics\Images\Question.png" />
+    <Resource Include="Publics\Images\Warning.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

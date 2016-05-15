@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
-using System.Data;
 using System.Diagnostics;
 using System.Globalization;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Markup;
 using Edzesterv_Osszeallito_Business_Desktop_Client.ViewModels.Windows;
@@ -28,11 +23,19 @@ namespace Edzesterv_Osszeallito_Business_Desktop_Client
             base.OnStartup(e);
             LogInView logInView = new LogInView();
             logInView.DataContext = new LogInViewModel(logInView);
+            logInView.Closing += LogInView_Closing;
             logInView.Show();
 
             Current.DispatcherUnhandledException += new System.Windows.Threading.DispatcherUnhandledExceptionEventHandler(App_DispatcherUnhandledException);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
+        }
+
+        private void LogInView_Closing(object sender, CancelEventArgs e)
+        {
+            GC.Collect(); // collects all unused memory
+            GC.WaitForPendingFinalizers(); // wait until GC has finished its work
+            GC.Collect();
         }
 
         private void MainView_Closing(object sender, CancelEventArgs e)

@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Edzesterv_Osszeallito_Business_Desktop_Client.ResourceDictionaries">
+    <Style TargetType="{x:Type CheckBox}">
+        <Setter Property="Background" Value="#6d7d8c"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>    
+</ResourceDictionary>
